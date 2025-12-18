@@ -1,5 +1,7 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useState } from 'react';
+import { motion } from 'motion/react';
+import { Lightbulb, Users, Rocket, Heart } from 'lucide-react';
 
 const gridImages = [
   'https://images.unsplash.com/photo-1758270705654-bd043ed13d5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400',
@@ -12,32 +14,32 @@ const gridImages = [
 
 // Mini avatars data
 const miniAvatars = [
+  { color: 'bg-gradient-to-br from-indigo-600 to-purple-600' },
   { color: 'bg-gradient-to-br from-blue-600 to-cyan-600' },
-  { color: 'bg-gradient-to-br from-cyan-600 to-teal-600' },
+  { color: 'bg-gradient-to-br from-purple-600 to-pink-600' },
   { color: 'bg-gradient-to-br from-teal-600 to-blue-600' },
-  { color: 'bg-gradient-to-br from-slate-600 to-blue-600' },
-  { color: 'bg-gradient-to-br from-blue-600 to-teal-600' }
+  { color: 'bg-gradient-to-br from-cyan-600 to-indigo-600' }
 ];
 
 export default function About() {
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 px-6 lg:px-12 overflow-hidden bg-gradient-to-br from-slate-50/30 via-blue-50/30 to-cyan-50/30">
+    <section className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-12 overflow-hidden bg-white/50 backdrop-blur-sm">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-cyan-100/20 to-teal-100/20 animate-gradient"></div>
       </div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-14 md:gap-16 items-center">
           {/* Left Side - Image Grid */}
-          <div className="relative">
-            <div className="grid grid-cols-3 grid-rows-2 gap-4">
+          <div className="relative order-2 lg:order-1">
+            <div className="grid grid-cols-3 grid-rows-2 gap-3 sm:gap-4">
               {gridImages.map((image, index) => (
                 <div
                   key={index}
-                  className="relative aspect-square rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105"
+                  className="relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-105 border-2 border-blue-100/30"
                   onMouseEnter={() => setHoveredImage(index)}
                   onMouseLeave={() => setHoveredImage(null)}
                 >
@@ -54,8 +56,8 @@ export default function About() {
           </div>
 
           {/* Right Side - Content */}
-          <div className="space-y-6 relative">
-            <h2 className="text-5xl bg-gradient-to-r from-blue-700 via-cyan-700 to-teal-700 bg-clip-text text-transparent">
+          <div className="space-y-6 relative order-1 lg:order-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl bg-gradient-to-r from-blue-700 via-cyan-700 to-slate-700 bg-clip-text text-transparent">
               About Community MeetUP
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">

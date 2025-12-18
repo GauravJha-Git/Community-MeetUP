@@ -6,10 +6,16 @@ import Team from './Team';
 import Contact from './Contact';
 import Footer from './Footer';
 import Navbar from './Navbar';
+import Snowfall from './Snowfall';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-slate-50 to-cyan-50">
+      {/* Snowfall for everything except hero */}
+      <div className="hidden-on-hero">
+        <Snowfall />
+      </div>
+      
       <Navbar />
       <div id="home">
         <Hero />

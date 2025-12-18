@@ -4,6 +4,8 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import EventDetailModal from './EventDetailModal';
+import Snowfall from './Snowfall';
+import { motion } from 'motion/react';
 
 const upcomingEvents = [
   {
@@ -224,52 +226,53 @@ export default function EventsPage() {
   }, [galleryImages]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-slate-50 to-cyan-50">
+      <Snowfall />
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-32 px-6 lg:px-12 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      <section className="relative overflow-hidden py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
         {/* Animated Gradient Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-cyan-100/20 to-teal-100/20 animate-gradient"></div>
         </div>
         
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-6xl lg:text-7xl mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6">
             Events and Gallery
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Explore our upcoming events, relive past moments, and discover the vibrant community that makes Community MeetUP special.
           </p>
         </div>
       </section>
 
       {/* Tabs / Filters */}
-      <section className="py-8 px-6 lg:px-12 border-b border-gray-200">
+      <section className="py-6 sm:py-8 px-4 sm:px-6 lg:px-12 border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4 flex-wrap justify-center sm:justify-start">
             <button
               onClick={() => setActiveTab('upcoming')}
-              className={`group relative px-6 py-3 rounded-full transition-all overflow-hidden ${
+              className={`group relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all overflow-hidden text-sm sm:text-base ${
                 activeTab === 'upcoming'
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md scale-105'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
               }`}
             >
-              <span className="relative z-10">Upcoming Events</span>
+              <span className="relative z-10 whitespace-nowrap">Upcoming Events</span>
               {activeTab !== 'upcoming' && (
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 translate-y-full group-hover:translate-y-0 transition-transform" />
               )}
             </button>
             <button
               onClick={() => setActiveTab('past')}
-              className={`group relative px-6 py-3 rounded-full transition-all overflow-hidden ${
+              className={`group relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all overflow-hidden text-sm sm:text-base ${
                 activeTab === 'past'
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md scale-105'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
               }`}
             >
-              <span className="relative z-10">Past Events</span>
+              <span className="relative z-10 whitespace-nowrap">Past Events</span>
               {activeTab !== 'past' && (
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 translate-y-full group-hover:translate-y-0 transition-transform" />
               )}
@@ -279,16 +282,16 @@ export default function EventsPage() {
       </section>
 
       {/* Events Grid */}
-      <section className="py-16 px-6 lg:px-12">
+      <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {currentEvents.map((event) => (
               <div
                 key={event.id}
                 className="group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-2"
               >
                 {/* Event Cover */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-48 sm:h-56 overflow-hidden">
                   <ImageWithFallback
                     src={event.image}
                     alt={event.title}
@@ -298,21 +301,21 @@ export default function EventsPage() {
                 </div>
 
                 {/* Event Details */}
-                <div className="p-6 space-y-3">
-                  <h3 className="text-2xl">{event.title}</h3>
+                <div className="p-5 sm:p-6 space-y-3">
+                  <h3 className="text-xl sm:text-2xl">{event.title}</h3>
                   <p className="text-sm text-gray-600 line-clamp-2">{event.details}</p>
                   <div className="space-y-2 text-gray-600 text-sm">
                     <p className="flex items-center gap-2">
                       <span>📅</span>
-                      {event.date}
+                      <span className="truncate">{event.date}</span>
                     </p>
                     <p className="flex items-center gap-2">
                       <span>📍</span>
-                      {event.location}
+                      <span className="truncate">{event.location}</span>
                     </p>
                     <p className="flex items-center gap-2">
                       <span>🏢</span>
-                      {event.address}
+                      <span className="truncate">{event.address}</span>
                     </p>
                   </div>
                   <button 
@@ -330,26 +333,26 @@ export default function EventsPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-6 px-6 lg:px-12 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50 h-screen flex flex-col justify-center">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50 min-h-[60vh] sm:min-h-[80vh] lg:h-screen flex flex-col justify-center">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl mb-2">Event Gallery</h2>
-            <p className="text-base text-gray-600">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mb-2">Event Gallery</h2>
+            <p className="text-sm sm:text-base text-gray-600 px-4">
               Moments captured from our amazing events and gatherings
             </p>
           </div>
 
-          {/* Pinterest-style 3-column masonry layout wrapped in bordered container */}
-          <div className="border-2 border-gray-300 rounded-2xl p-4 bg-white/50 backdrop-blur-sm">
-            <div className="grid grid-cols-3 gap-3">
+          {/* Pinterest-style masonry layout - responsive columns */}
+          <div className="border-2 border-gray-300 rounded-xl sm:rounded-2xl p-3 sm:p-4 bg-white/50 backdrop-blur-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
               {/* Column 1 */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2 sm:gap-3">
                 {galleryImages.filter((_, idx) => idx % 3 === 0).map((layoutItem) => {
                   const image = galleryImagePool[layoutItem.poolIndex];
                   const heightClass = 
-                    image.type === 'portrait' ? 'h-48' :
-                    image.type === 'landscape' ? 'h-32' :
-                    'h-40'; // square
+                    image.type === 'portrait' ? 'h-36 sm:h-40 md:h-48' :
+                    image.type === 'landscape' ? 'h-24 sm:h-28 md:h-32' :
+                    'h-32 sm:h-36 md:h-40'; // square
                   
                   return (
                     <div
@@ -367,13 +370,13 @@ export default function EventsPage() {
               </div>
 
               {/* Column 2 */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2 sm:gap-3">
                 {galleryImages.filter((_, idx) => idx % 3 === 1).map((layoutItem) => {
                   const image = galleryImagePool[layoutItem.poolIndex];
                   const heightClass = 
-                    image.type === 'portrait' ? 'h-48' :
-                    image.type === 'landscape' ? 'h-32' :
-                    'h-40'; // square
+                    image.type === 'portrait' ? 'h-36 sm:h-40 md:h-48' :
+                    image.type === 'landscape' ? 'h-24 sm:h-28 md:h-32' :
+                    'h-32 sm:h-36 md:h-40'; // square
                   
                   return (
                     <div
@@ -390,14 +393,14 @@ export default function EventsPage() {
                 })}
               </div>
 
-              {/* Column 3 */}
-              <div className="flex flex-col gap-3">
+              {/* Column 3 - Hidden on mobile, shown on sm+ */}
+              <div className="hidden sm:flex flex-col gap-2 sm:gap-3">
                 {galleryImages.filter((_, idx) => idx % 3 === 2).map((layoutItem) => {
                   const image = galleryImagePool[layoutItem.poolIndex];
                   const heightClass = 
-                    image.type === 'portrait' ? 'h-48' :
-                    image.type === 'landscape' ? 'h-32' :
-                    'h-40'; // square
+                    image.type === 'portrait' ? 'h-36 sm:h-40 md:h-48' :
+                    image.type === 'landscape' ? 'h-24 sm:h-28 md:h-32' :
+                    'h-32 sm:h-36 md:h-40'; // square
                   
                   return (
                     <div

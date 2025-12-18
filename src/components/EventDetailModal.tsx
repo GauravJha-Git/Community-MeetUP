@@ -114,26 +114,26 @@ export default function EventDetailModal({ event, onClose }: EventDetailModalPro
                 
                 {/* Quick Info Cards */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
-                    <Calendar className="w-5 h-5 text-blue-600 mb-2" />
+                  <div className="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
+                    <Calendar className="w-5 h-5 text-indigo-600 mb-2" />
                     <p className="text-sm text-gray-600">Date</p>
                     <p className="text-gray-900">{event.date}</p>
                   </div>
                   
-                  <div className="p-4 bg-gradient-to-br from-cyan-50 to-teal-50 rounded-xl border border-cyan-100">
-                    <Clock className="w-5 h-5 text-cyan-600 mb-2" />
+                  <div className="p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
+                    <Clock className="w-5 h-5 text-blue-600 mb-2" />
                     <p className="text-sm text-gray-600">Time</p>
                     <p className="text-gray-900">{timeMapping[event.id] || '10:00 AM - 5:00 PM'}</p>
                   </div>
                   
-                  <div className="p-4 bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl border border-teal-100">
-                    <MapPin className="w-5 h-5 text-teal-600 mb-2" />
+                  <div className="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                    <MapPin className="w-5 h-5 text-purple-600 mb-2" />
                     <p className="text-sm text-gray-600">Location</p>
                     <p className="text-gray-900">{event.location}</p>
                   </div>
                   
-                  <div className="p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-100">
-                    <Users className="w-5 h-5 text-blue-600 mb-2" />
+                  <div className="p-4 bg-gradient-to-br from-cyan-50 to-teal-50 rounded-xl border border-cyan-100">
+                    <Users className="w-5 h-5 text-cyan-600 mb-2" />
                     <p className="text-sm text-gray-600">Capacity</p>
                     <p className="text-gray-900">{capacityMapping[event.id] || '100 participants'}</p>
                   </div>

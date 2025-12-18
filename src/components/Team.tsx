@@ -117,34 +117,34 @@ export default function Team() {
   }, []);
 
   return (
-    <section className="relative py-24 px-6 lg:px-12 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50 overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50 overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-cyan-100/20 to-teal-100/20 animate-gradient"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl mb-4">Meet Our Team</h2>
-          <p className="text-xl text-gray-600">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">Meet Our Team</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
             The amazing people behind Community MeetUP
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           {/* First Row - Left to Right */}
           <div className="overflow-hidden">
-            <div ref={scrollRef1} className="flex gap-6 will-change-transform">
+            <div ref={scrollRef1} className="flex gap-4 sm:gap-6 will-change-transform">
               {duplicatedCol1.map((member, index) => (
                 <div
                   key={`row1-${index}`}
-                  className="flex-shrink-0 w-72 bg-white rounded-3xl overflow-hidden border-2 border-gray-200 shadow-lg"
+                  className="flex-shrink-0 w-56 sm:w-64 md:w-72 bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-gray-200 shadow-lg"
                   style={{
                     background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(249,250,251,0.9) 100%)'
                   }}
                 >
                   {/* Image */}
-                  <div className="w-full h-80 bg-gradient-to-br from-blue-100 to-cyan-100">
+                  <div className="w-full h-64 sm:h-72 md:h-80 bg-gradient-to-br from-indigo-100 to-purple-100">
                     <ImageWithFallback
                       src={member.image}
                       alt={member.name}
@@ -153,8 +153,8 @@ export default function Team() {
                   </div>
 
                   {/* Name */}
-                  <div className="p-6 text-center">
-                    <h3 className="text-2xl">{member.name}</h3>
+                  <div className="p-4 sm:p-6 text-center">
+                    <h3 className="text-lg sm:text-xl md:text-2xl">{member.name}</h3>
                   </div>
                 </div>
               ))}
@@ -163,17 +163,17 @@ export default function Team() {
 
           {/* Second Row - Right to Left */}
           <div className="overflow-hidden">
-            <div ref={scrollRef2} className="flex gap-6 will-change-transform">
+            <div ref={scrollRef2} className="flex gap-4 sm:gap-6 will-change-transform">
               {duplicatedCol2.map((member, index) => (
                 <div
                   key={`row2-${index}`}
-                  className="flex-shrink-0 w-72 bg-white rounded-3xl overflow-hidden border-2 border-gray-200 shadow-lg"
+                  className="flex-shrink-0 w-56 sm:w-64 md:w-72 bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-gray-200 shadow-lg"
                   style={{
                     background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(249,250,251,0.9) 100%)'
                   }}
                 >
                   {/* Image */}
-                  <div className="w-full h-80 bg-gradient-to-br from-blue-100 to-cyan-100">
+                  <div className="w-full h-64 sm:h-72 md:h-80 bg-gradient-to-br from-blue-100 to-cyan-100">
                     <ImageWithFallback
                       src={member.image}
                       alt={member.name}
@@ -182,8 +182,8 @@ export default function Team() {
                   </div>
 
                   {/* Name */}
-                  <div className="p-6 text-center">
-                    <h3 className="text-2xl">{member.name}</h3>
+                  <div className="p-4 sm:p-6 text-center">
+                    <h3 className="text-lg sm:text-xl md:text-2xl">{member.name}</h3>
                   </div>
                 </div>
               ))}
