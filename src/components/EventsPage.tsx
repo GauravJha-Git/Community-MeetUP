@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import EventDetailModal from './EventDetailModal';
 import Snowfall from './Snowfall';
 import { motion } from 'motion/react';
+import { Marquee } from './ui/marquee';
 
 const upcomingEvents = [
   {
@@ -103,59 +104,41 @@ const pastEvents = [
   }
 ];
 
-// Gallery images pool with different aspect ratios
-const galleryImagePool = [
-  // Portrait images
-  { url: 'https://images.unsplash.com/photo-1762968269894-1d7e1ce8894e?w=600', type: 'portrait' },
-  { url: 'https://images.unsplash.com/photo-1638029202288-451a89e0d55f?w=600', type: 'portrait' },
-  { url: 'https://images.unsplash.com/photo-1695066964145-245927509533?w=600', type: 'portrait' },
-  { url: 'https://images.unsplash.com/photo-1565687981296-535f09db714e?w=600', type: 'portrait' },
-  { url: 'https://images.unsplash.com/photo-1651684195895-38708dc94cfa?w=600', type: 'portrait' },
-  { url: 'https://images.unsplash.com/photo-1562758778-e5638b5b6607?w=600', type: 'portrait' },
-  
-  // Landscape images
-  { url: 'https://images.unsplash.com/photo-1733222765056-b0790217baa9?w=800', type: 'landscape' },
-  { url: 'https://images.unsplash.com/photo-1706759755836-43836ff8af15?w=800', type: 'landscape' },
-  { url: 'https://images.unsplash.com/photo-1523582407565-efee5cf4a353?w=800', type: 'landscape' },
-  { url: 'https://images.unsplash.com/photo-1531539427495-97c44a449837?w=800', type: 'landscape' },
-  { url: 'https://images.unsplash.com/photo-1739298061740-5ed03045b280?w=800', type: 'landscape' },
-  { url: 'https://images.unsplash.com/photo-1497409988347-cbfaac2f0b12?w=800', type: 'landscape' },
-  
-  // Square images
-  { url: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?w=600', type: 'square' },
-  { url: 'https://images.unsplash.com/photo-1760493828288-d2dbb70d18c9?w=600', type: 'square' },
-  { url: 'https://images.unsplash.com/photo-1599592187465-6dc742367282?w=600', type: 'square' },
-  { url: 'https://images.unsplash.com/photo-1728933102332-a4f1a281a621?w=600', type: 'square' },
-  { url: 'https://images.unsplash.com/photo-1760952851538-17a59f691efe?w=600', type: 'square' },
-  { url: 'https://images.unsplash.com/photo-1531539427495-97c44a449837?w=600', type: 'square' },
+// Gallery images divided into 3 sliders with 7 images each
+const slider1 = [
+  { url: 'https://images.unsplash.com/photo-1762968269894-1d7e1ce8894e?w=600', name: 'Event 1' },
+  { url: 'https://images.unsplash.com/photo-1638029202288-451a89e0d55f?w=600', name: 'Event 2' },
+  { url: 'https://images.unsplash.com/photo-1695066964145-245927509533?w=600', name: 'Event 3' },
+  { url: 'https://images.unsplash.com/photo-1565687981296-535f09db714e?w=600', name: 'Event 4' },
+  { url: 'https://images.unsplash.com/photo-1651684195895-38708dc94cfa?w=600', name: 'Event 5' },
+  { url: 'https://images.unsplash.com/photo-1562758778-e5638b5b6607?w=600', name: 'Event 6' },
+  { url: 'https://images.unsplash.com/photo-1733222765056-b0790217baa9?w=800', name: 'Event 7' },
 ];
 
-// Initial layout structure (3 columns with mixed sizes)
-const initialGalleryLayout = [
-  // Column 1
-  { id: 1, type: 'portrait', poolIndex: 0 },
-  { id: 2, type: 'landscape', poolIndex: 6 },
-  { id: 3, type: 'square', poolIndex: 12 },
-  
-  // Column 2
-  { id: 4, type: 'square', poolIndex: 13 },
-  { id: 5, type: 'portrait', poolIndex: 1 },
-  { id: 6, type: 'landscape', poolIndex: 7 },
-  
-  // Column 3
-  { id: 7, type: 'landscape', poolIndex: 8 },
-  { id: 8, type: 'square', poolIndex: 14 },
-  { id: 9, type: 'portrait', poolIndex: 2 },
+const slider2 = [
+  { url: 'https://images.unsplash.com/photo-1706759755836-43836ff8af15?w=800', name: 'Event 8' },
+  { url: 'https://images.unsplash.com/photo-1523582407565-efee5cf4a353?w=800', name: 'Event 9' },
+  { url: 'https://images.unsplash.com/photo-1531539427495-97c44a449837?w=800', name: 'Event 10' },
+  { url: 'https://images.unsplash.com/photo-1739298061740-5ed03045b280?w=800', name: 'Event 11' },
+  { url: 'https://images.unsplash.com/photo-1497409988347-cbfaac2f0b12?w=800', name: 'Event 12' },
+  { url: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?w=600', name: 'Event 13' },
+  { url: 'https://images.unsplash.com/photo-1760493828288-d2dbb70d18c9?w=600', name: 'Event 14' },
+];
+
+const slider3 = [
+  { url: 'https://images.unsplash.com/photo-1599592187465-6dc742367282?w=600', name: 'Event 15' },
+  { url: 'https://images.unsplash.com/photo-1728933102332-a4f1a281a621?w=600', name: 'Event 16' },
+  { url: 'https://images.unsplash.com/photo-1760952851538-17a59f691efe?w=600', name: 'Event 17' },
+  { url: 'https://images.unsplash.com/photo-1531539427495-97c44a449837?w=600', name: 'Event 18' },
+  { url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800', name: 'Event 19' },
+  { url: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800', name: 'Event 20' },
+  { url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800', name: 'Event 21' },
 ];
 
 export default function EventsPage() {
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
   const currentEvents = activeTab === 'upcoming' ? upcomingEvents : pastEvents;
   const navigate = useNavigate();
-  
-  // State for gallery image rotation with fade effect
-  const [galleryImages, setGalleryImages] = useState(initialGalleryLayout);
-  const [fadingImages, setFadingImages] = useState<Set<number>>(new Set());
   
   // State for modal
   const [selectedEvent, setSelectedEvent] = useState<typeof upcomingEvents[0] | null>(null);
@@ -177,53 +160,6 @@ export default function EventsPage() {
       window.removeEventListener('popstate', handlePopState);
     };
   }, [navigate]);
-
-  // Auto-rotate gallery images
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Pick a random image to change
-      const randomIndex = Math.floor(Math.random() * galleryImages.length);
-      const currentItem = galleryImages[randomIndex];
-      
-      // Get all images of the same type
-      const sameTypeImages = galleryImagePool
-        .map((img, idx) => ({ img, idx }))
-        .filter(({ img }) => img.type === currentItem.type);
-      
-      // Pick a random image of the same type (different from current)
-      const filteredImages = sameTypeImages.filter(({ idx }) => idx !== currentItem.poolIndex);
-      if (filteredImages.length === 0) return;
-      
-      const randomImageData = filteredImages[Math.floor(Math.random() * filteredImages.length)];
-      
-      // Start fade out
-      setFadingImages(prev => new Set(prev).add(currentItem.id));
-      
-      // After fade out, change image and fade in
-      setTimeout(() => {
-        setGalleryImages(prev => {
-          const newImages = [...prev];
-          newImages[randomIndex] = {
-            ...newImages[randomIndex],
-            poolIndex: randomImageData.idx
-          };
-          return newImages;
-        });
-        
-        // Remove from fading set
-        setTimeout(() => {
-          setFadingImages(prev => {
-            const newSet = new Set(prev);
-            newSet.delete(currentItem.id);
-            return newSet;
-          });
-        }, 50);
-      }, 400); // Duration of fade out
-      
-    }, 1200); // Change image every 1.2 seconds (faster)
-    
-    return () => clearInterval(interval);
-  }, [galleryImages]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-slate-50 to-cyan-50">
@@ -332,89 +268,61 @@ export default function EventsPage() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50 min-h-[60vh] sm:min-h-[80vh] lg:h-screen flex flex-col justify-center">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl mb-2">Event Gallery</h2>
-            <p className="text-sm sm:text-base text-gray-600 px-4">
-              Moments captured from our amazing events and gatherings
-            </p>
-          </div>
+      {/* Gallery Section with Marquee */}
+      <section className="relative w-full py-12 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50">
+        <div className="max-w-7xl mx-auto w-full" style={{ height: '100vh', minHeight: '600px' }}>
+          {/* Gallery Box Container */}
+          <div className="relative w-full h-full border-4 border-gray-300 rounded-3xl bg-white/50 backdrop-blur-sm shadow-2xl overflow-hidden">
+            {/* "Gallery" text overlay - centered and z-indexed above marquees */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col justify-center items-center bg-white md:h-60 md:w-[400px] h-40 w-72 rounded-2xl shadow-2xl">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">Gallery</h2>
+            </div>
 
-          {/* Pinterest-style masonry layout - responsive columns */}
-          <div className="border-2 border-gray-300 rounded-xl sm:rounded-2xl p-3 sm:p-4 bg-white/50 backdrop-blur-sm">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-              {/* Column 1 */}
-              <div className="flex flex-col gap-2 sm:gap-3">
-                {galleryImages.filter((_, idx) => idx % 3 === 0).map((layoutItem) => {
-                  const image = galleryImagePool[layoutItem.poolIndex];
-                  const heightClass = 
-                    image.type === 'portrait' ? 'h-36 sm:h-40 md:h-48' :
-                    image.type === 'landscape' ? 'h-24 sm:h-28 md:h-32' :
-                    'h-32 sm:h-36 md:h-40'; // square
-                  
-                  return (
-                    <div
-                      key={layoutItem.id}
-                      className={`relative ${heightClass} rounded-lg overflow-hidden shadow-md`}
-                    >
+            {/* Marquee rows container */}
+            <div className="w-full h-full flex flex-col justify-center gap-6">
+              {/* First row - scrolls left to right */}
+              <div className="w-full overflow-hidden">
+                <Marquee className="[--duration:40s]" repeat={6}>
+                  {slider1.map((payload, index) => (
+                    <div key={index} className="px-2">
                       <ImageWithFallback
-                        src={image.url}
-                        alt={image.type}
-                        className={`w-full h-full object-cover transition-opacity duration-500 ${fadingImages.has(layoutItem.id) ? 'opacity-0' : 'opacity-100'}`}
+                        className="object-cover h-32 w-60 md:h-48 md:w-80 rounded-xl md:rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                        src={payload.url}
+                        alt={payload.name}
                       />
                     </div>
-                  );
-                })}
+                  ))}
+                </Marquee>
               </div>
 
-              {/* Column 2 */}
-              <div className="flex flex-col gap-2 sm:gap-3">
-                {galleryImages.filter((_, idx) => idx % 3 === 1).map((layoutItem) => {
-                  const image = galleryImagePool[layoutItem.poolIndex];
-                  const heightClass = 
-                    image.type === 'portrait' ? 'h-36 sm:h-40 md:h-48' :
-                    image.type === 'landscape' ? 'h-24 sm:h-28 md:h-32' :
-                    'h-32 sm:h-36 md:h-40'; // square
-                  
-                  return (
-                    <div
-                      key={layoutItem.id}
-                      className={`relative ${heightClass} rounded-lg overflow-hidden shadow-md`}
-                    >
+              {/* Second row - scrolls right to left (reverse) */}
+              <div className="w-full overflow-hidden">
+                <Marquee className="[--duration:40s]" repeat={6}>
+                  {slider2.map((payload, index) => (
+                    <div key={index} className="px-2">
                       <ImageWithFallback
-                        src={image.url}
-                        alt={image.type}
-                        className={`w-full h-full object-cover transition-opacity duration-500 ${fadingImages.has(layoutItem.id) ? 'opacity-0' : 'opacity-100'}`}
+                        className="object-cover h-32 w-60 md:h-48 md:w-80 rounded-xl md:rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                        src={payload.url}
+                        alt={payload.name}
                       />
                     </div>
-                  );
-                })}
+                  ))}
+                </Marquee>
               </div>
 
-              {/* Column 3 - Hidden on mobile, shown on sm+ */}
-              <div className="hidden sm:flex flex-col gap-2 sm:gap-3">
-                {galleryImages.filter((_, idx) => idx % 3 === 2).map((layoutItem) => {
-                  const image = galleryImagePool[layoutItem.poolIndex];
-                  const heightClass = 
-                    image.type === 'portrait' ? 'h-36 sm:h-40 md:h-48' :
-                    image.type === 'landscape' ? 'h-24 sm:h-28 md:h-32' :
-                    'h-32 sm:h-36 md:h-40'; // square
-                  
-                  return (
-                    <div
-                      key={layoutItem.id}
-                      className={`relative ${heightClass} rounded-lg overflow-hidden shadow-md`}
-                    >
+              {/* Third row - scrolls left to right */}
+              <div className="w-full overflow-hidden">
+                <Marquee className="[--duration:40s]" repeat={6}>
+                  {slider3.map((payload, index) => (
+                    <div key={index} className="px-2">
                       <ImageWithFallback
-                        src={image.url}
-                        alt={image.type}
-                        className={`w-full h-full object-cover transition-opacity duration-500 ${fadingImages.has(layoutItem.id) ? 'opacity-0' : 'opacity-100'}`}
+                        className="object-cover h-32 w-60 md:h-48 md:w-80 rounded-xl md:rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                        src={payload.url}
+                        alt={payload.name}
                       />
                     </div>
-                  );
-                })}
+                  ))}
+                </Marquee>
               </div>
             </div>
           </div>

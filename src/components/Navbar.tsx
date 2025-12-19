@@ -7,6 +7,8 @@ export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const isEventsPage = location.pathname === '/events';
+  const isTeamPage = location.pathname === '/team';
+  const isNotHomePage = isEventsPage || isTeamPage;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -21,8 +23,8 @@ export default function Navbar() {
 
   const scrollToSection = (sectionId: string) => {
     setMobileMenuOpen(false); // Close mobile menu when navigating
-    if (isEventsPage) {
-      // If on events page, navigate to home first then scroll
+    if (isNotHomePage) {
+      // If not on home page, navigate to home first then scroll
       navigate('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -77,13 +79,13 @@ export default function Navbar() {
               <span className="relative z-10">Events</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <button
-              onClick={() => scrollToSection('team')}
+            <Link
+              to="/team"
               className="relative text-gray-700 hover:text-blue-600 transition-colors cursor-pointer group"
             >
               <span className="relative z-10">Team</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection('contact')}
               className="px-4 lg:px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:shadow-lg transition-all hover:scale-105 cursor-pointer"
@@ -124,12 +126,13 @@ export default function Navbar() {
               >
                 Events
               </Link>
-              <button
-                onClick={() => scrollToSection('team')}
+              <Link
+                to="/team"
+                onClick={() => setMobileMenuOpen(false)}
                 className="text-left px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
               >
                 Team
-              </button>
+              </Link>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="mx-4 px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center hover:shadow-lg transition-all"

@@ -5,7 +5,6 @@ import HeroSnowfall from './HeroSnowfall';
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [glitchChars, setGlitchChars] = useState<{ [key: number]: { type: 'fade' | 'shift' | 'glow' } }>({});
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -14,40 +13,6 @@ export default function Hero() {
     
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Professional glitch effect with brand colors
-  useEffect(() => {
-    const title = "Community MeetUP";
-    
-    const glitchInterval = setInterval(() => {
-      // Glitch 3-7 characters at a time for more impact
-      const numGlitches = Math.floor(Math.random() * 5) + 3;
-      const newGlitchChars: { [key: number]: { type: 'fade' | 'shift' | 'glow' } } = {};
-      
-      for (let i = 0; i < numGlitches; i++) {
-        const randomIndex = Math.floor(Math.random() * title.length);
-        if (title[randomIndex] !== ' ') {
-          const glitchType = Math.random();
-          if (glitchType < 0.33) {
-            newGlitchChars[randomIndex] = { type: 'fade' };
-          } else if (glitchType < 0.66) {
-            newGlitchChars[randomIndex] = { type: 'shift' };
-          } else {
-            newGlitchChars[randomIndex] = { type: 'glow' };
-          }
-        }
-      }
-      
-      setGlitchChars(newGlitchChars);
-      
-      // Brief glitch duration
-      setTimeout(() => {
-        setGlitchChars({});
-      }, 200);
-    }, 300 + Math.random() * 500); // Much more frequent!
-
-    return () => clearInterval(glitchInterval);
   }, []);
 
   const title = "Community MeetUP";
@@ -176,7 +141,7 @@ export default function Hero() {
       
       <div className="max-w-7xl mx-auto w-full">
         <div className="max-w-5xl mx-auto text-center space-y-10">
-          {/* Animated Main Heading with Glitch Effect */}
+          {/* Main Heading - No Animation */}
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -187,50 +152,8 @@ export default function Hero() {
             }}
             className="space-y-4 flex justify-center"
           >
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl tracking-tight leading-tight whitespace-nowrap text-center">
-              {title.split('').map((char, index) => {
-                const glitch = glitchChars[index];
-                const isGlitching = !!glitch;
-                
-                return (
-                  <motion.span
-                    key={index}
-                    className="inline-block bg-gradient-to-r from-blue-700 via-cyan-700 to-slate-700 bg-clip-text text-transparent"
-                    style={{
-                      backgroundSize: '200% 200%',
-                      WebkitTextFillColor: isGlitching ? '#475569' : 'transparent',
-                      filter: isGlitching 
-                        ? glitch.type === 'glow' 
-                          ? 'grayscale(1) contrast(1.3) blur(0.5px) drop-shadow(0 0 8px rgba(71, 85, 109, 0.8))'
-                          : 'grayscale(1) contrast(1.3) drop-shadow(0 0 6px rgba(71, 85, 109, 0.6))' 
-                        : 'none',
-                    }}
-                    animate={{
-                      opacity: glitch?.type === 'fade' ? [1, 0.2, 1, 0.4, 1, 0.3, 1] : 1,
-                      y: glitch?.type === 'shift' ? [0, -8, 4, -6, 2, -3, 0] : 0,
-                      x: glitch?.type === 'shift' ? [0, 4, -3, 3, -2, 2, 0] : 
-                         glitch?.type === 'fade' ? [0, -1, 1, -1, 0] : 0,
-                      scale: glitch?.type === 'glow' ? [1, 1.15, 1.08, 1.12, 1.05, 1] : 
-                             glitch?.type === 'fade' ? [1, 0.95, 1, 0.98, 1] : 1,
-                      rotate: glitch?.type === 'shift' ? [0, -3, 2, -2, 1, 0] : 
-                              glitch?.type === 'glow' ? [0, 1, -1, 0] : 0,
-                      skewX: glitch?.type === 'shift' ? [0, 2, -2, 1, -1, 0] : 0,
-                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                    }}
-                    transition={{
-                      opacity: glitch?.type === 'fade' ? { duration: 0.2, ease: [0.4, 0, 0.6, 1] } : { duration: 8, repeat: Infinity, ease: "linear" },
-                      y: glitch?.type === 'shift' ? { duration: 0.2, ease: [0.4, 0, 0.2, 1] } : {},
-                      x: isGlitching ? { duration: 0.2, ease: [0.4, 0, 0.6, 1] } : {},
-                      scale: isGlitching ? { duration: 0.2, ease: [0.4, 0, 0.2, 1] } : {},
-                      rotate: isGlitching ? { duration: 0.2, ease: [0.4, 0, 0.6, 1] } : {},
-                      skewX: glitch?.type === 'shift' ? { duration: 0.2, ease: [0.4, 0, 0.2, 1] } : {},
-                      backgroundPosition: { duration: 8, repeat: Infinity, ease: "linear" }
-                    }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </motion.span>
-                );
-              })}
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl tracking-tight leading-tight whitespace-nowrap text-center bg-gradient-to-r from-blue-700 via-cyan-700 to-slate-700 bg-clip-text text-transparent">
+              Community MeetUP
             </h1>
           </motion.div>
           
