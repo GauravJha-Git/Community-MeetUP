@@ -30,7 +30,7 @@ export default function About() {
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-cyan-100/20 to-teal-100/20 animate-gradient"></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 sm:gap-14 md:gap-16 items-center">
           {/* Left Side - Image Grid */}
@@ -58,7 +58,7 @@ export default function About() {
           {/* Right Side - Content */}
           <div className="space-y-6 relative order-1 lg:order-2">
             <h2 className="text-3xl sm:text-4xl md:text-5xl bg-gradient-to-r from-blue-700 via-cyan-700 to-slate-700 bg-clip-text text-transparent">
-              About Community MeetUP
+              About Community MeetUps
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               We are a passionate community of student developers, designers, and innovators dedicated to fostering growth through hackathons, workshops, and networking events.
@@ -66,7 +66,7 @@ export default function About() {
             <p className="text-lg text-gray-600 leading-relaxed">
               Our mission is to empower students with the skills, connections, and opportunities they need to excel in the tech industry. From beginner-friendly workshops to advanced hackathons, we create spaces where learning meets collaboration.
             </p>
-            
+
             {/* Stats Cards */}
             <div className="grid grid-cols-2 gap-4 pt-4">
               <div className="group bg-white rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-lg hover:-translate-y-1">
@@ -78,7 +78,7 @@ export default function About() {
                 <div className="text-sm text-gray-600">Satisfaction Rate</div>
               </div>
             </div>
-            
+
             {/* Mini Avatars Row */}
             <div className="flex items-center gap-3 pt-4">
               <div className="flex -space-x-3">

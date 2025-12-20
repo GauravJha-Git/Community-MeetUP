@@ -1,7 +1,7 @@
 
-  # Community MeetUP Website Design
+  # Community MeetUps Website Design
 
-  This is a code bundle for Community MeetUP Website Design. The original project is available at https://www.figma.com/design/8VOA7bRC8y6mvK86jIXumR/Community-MeetUP-Website-Design.
+  This is a code bundle for Community MeetUps Website Design. The original project is available at https://www.figma.com/design/8VOA7bRC8y6mvK86jIXumR/Community-MeetUP-Website-Design.
 
   ## Running the code
 

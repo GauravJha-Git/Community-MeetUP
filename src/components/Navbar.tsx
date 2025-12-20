@@ -49,11 +49,11 @@ export default function Navbar() {
             <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-gradient-to-br from-indigo-600 to-purple-600 group-hover:scale-110 transition-transform">
               <ImageWithFallback 
                 src="https://images.unsplash.com/photo-1696041757950-62e2c030283b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwY29tbXVuaXR5JTIwbG9nbyUyMG1pbmltYWx8ZW58MXx8fHwxNzY2MDkwMTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                alt="Community MeetUP Logo"
+                alt="Community MeetUps Logo"
                 className="w-full h-full object-cover"
               />
             </div>
-            <span className="text-base sm:text-lg lg:text-xl">Community MeetUP</span>
+            <span className="text-base sm:text-lg lg:text-xl">Community MeetUps</span>
           </Link>
 
           {/* Desktop Menu Items */}

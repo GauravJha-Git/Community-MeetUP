@@ -53,7 +53,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
             {/* Logo and Name */}
-            <motion.div 
+            <motion.div
               className="text-center sm:text-left"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -61,18 +61,18 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center gap-3 mb-4 justify-center sm:justify-start">
-                <motion.div 
+                <motion.div
                   className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-cyan-400 ring-2 ring-white/30"
                   whileHover={{ scale: 1.1, rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <ImageWithFallback 
+                  <ImageWithFallback
                     src="https://images.unsplash.com/photo-1696041757950-62e2c030283b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwY29tbXVuaXR5JTIwbG9nbyUyMG1pbmltYWx8ZW58MXx8fHwxNzY2MDkwMTE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                    alt="Community MeetUP Logo"
+                    alt="Community MeetUps Logo"
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <span className="text-xl">Community MeetUP</span>
+                <span className="text-xl">Community MeetUps</span>
               </div>
               <p className="text-sm sm:text-base text-blue-200">
                 Connecting students through tech and innovation.
@@ -80,7 +80,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Links */}
-            <motion.div 
+            <motion.div
               className="text-center sm:text-left"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Contact Information */}
-            <motion.div 
+            <motion.div
               className="text-center sm:text-left"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Social Links */}
-            <motion.div 
+            <motion.div
               className="text-center sm:text-left"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom Copyright */}
-          <motion.div 
+          <motion.div
             className="pt-8 border-t border-white/20 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -184,7 +184,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <p className="text-xs sm:text-sm md:text-base text-blue-200">
-              © 2025 Community MeetUP. All rights reserved.
+              © 2025 Community MeetUps. All rights reserved.
             </p>
           </motion.div>
         </div>

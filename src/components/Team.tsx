@@ -2,67 +2,67 @@ import { useEffect, useRef } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const teamMembersCol1 = [
-  { 
-    name: 'Alex Chen', 
+  {
+    name: 'Alex Chen',
     image: 'https://images.unsplash.com/photo-1742119897876-67e9935ac375?w=400'
   },
-  { 
-    name: 'Michael Lee', 
+  {
+    name: 'Michael Lee',
     image: 'https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?w=400'
   },
-  { 
-    name: 'Ryan Davis', 
+  {
+    name: 'Ryan Davis',
     image: 'https://images.unsplash.com/photo-1672685667592-0392f458f46f?w=400'
   },
-  { 
-    name: 'James Wilson', 
+  {
+    name: 'James Wilson',
     image: 'https://images.unsplash.com/photo-1708195886023-3ecb00ac7a49?w=400'
   },
-  { 
-    name: 'David Kim', 
+  {
+    name: 'David Kim',
     image: 'https://images.unsplash.com/photo-1742119897876-67e9935ac375?w=400'
   },
-  { 
-    name: 'Noah Garcia', 
+  {
+    name: 'Noah Garcia',
     image: 'https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?w=400'
   },
-  { 
-    name: 'Ethan Rodriguez', 
+  {
+    name: 'Ethan Rodriguez',
     image: 'https://images.unsplash.com/photo-1672685667592-0392f458f46f?w=400'
   },
-  { 
-    name: 'Liam Taylor', 
+  {
+    name: 'Liam Taylor',
     image: 'https://images.unsplash.com/photo-1708195886023-3ecb00ac7a49?w=400'
   }
 ];
 
 const teamMembersCol2 = [
-  { 
-    name: 'Sarah Kumar', 
+  {
+    name: 'Sarah Kumar',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400'
   },
-  { 
-    name: 'Priya Sharma', 
+  {
+    name: 'Priya Sharma',
     image: 'https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?w=400'
   },
-  { 
-    name: 'Maya Patel', 
+  {
+    name: 'Maya Patel',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400'
   },
-  { 
-    name: 'Lisa Wang', 
+  {
+    name: 'Lisa Wang',
     image: 'https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?w=400'
   },
-  { 
-    name: 'Emma Brown', 
+  {
+    name: 'Emma Brown',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400'
   },
-  { 
-    name: 'Olivia Martin', 
+  {
+    name: 'Olivia Martin',
     image: 'https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?w=400'
   },
-  { 
-    name: 'Sophia Anderson', 
+  {
+    name: 'Sophia Anderson',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400'
   }
 ];
@@ -78,7 +78,7 @@ export default function Team() {
   useEffect(() => {
     const scroll1 = scrollRef1.current;
     const scroll2 = scrollRef2.current;
-    
+
     if (!scroll1 || !scroll2) return;
 
     let animationId1: number;
@@ -127,7 +127,7 @@ export default function Team() {
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">Meet Our Team</h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
-            The amazing people behind Community MeetUP
+            The amazing people behind Community MeetUps
           </p>
         </div>
 

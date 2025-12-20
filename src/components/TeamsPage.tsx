@@ -7,85 +7,85 @@ import Snowfall from './Snowfall';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const teamMembers = [
-  { 
-    name: 'Alex Chen', 
+  {
+    name: 'Alex Chen',
     role: 'Founder & CEO',
     image: 'https://images.unsplash.com/photo-1742119897876-67e9935ac375?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-blue-400 via-cyan-400 to-teal-400'
   },
-  { 
-    name: 'Sarah Kumar', 
+  {
+    name: 'Sarah Kumar',
     role: 'Community Manager',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-purple-400 via-pink-400 to-rose-400'
   },
-  { 
-    name: 'Michael Lee', 
+  {
+    name: 'Michael Lee',
     role: 'Lead Developer',
     image: 'https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-indigo-400 via-purple-400 to-pink-400'
   },
-  { 
-    name: 'Priya Sharma', 
+  {
+    name: 'Priya Sharma',
     role: 'Events Coordinator',
     image: 'https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-teal-400 via-cyan-400 to-blue-400'
   },
-  { 
-    name: 'Ryan Davis', 
+  {
+    name: 'Ryan Davis',
     role: 'Marketing Lead',
     image: 'https://images.unsplash.com/photo-1672685667592-0392f458f46f?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-orange-400 via-amber-400 to-yellow-400'
   },
-  { 
-    name: 'Maya Patel', 
+  {
+    name: 'Maya Patel',
     role: 'Content Creator',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-pink-400 via-rose-400 to-red-400'
   },
-  { 
-    name: 'James Wilson', 
+  {
+    name: 'James Wilson',
     role: 'Tech Lead',
     image: 'https://images.unsplash.com/photo-1708195886023-3ecb00ac7a49?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-cyan-400 via-blue-400 to-indigo-400'
   },
-  { 
-    name: 'Lisa Wang', 
+  {
+    name: 'Lisa Wang',
     role: 'Design Head',
     image: 'https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-violet-400 via-purple-400 to-fuchsia-400'
   },
-  { 
-    name: 'David Kim', 
+  {
+    name: 'David Kim',
     role: 'Operations Manager',
     image: 'https://images.unsplash.com/photo-1742119897876-67e9935ac375?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-emerald-400 via-teal-400 to-cyan-400'
   },
-  { 
-    name: 'Emma Brown', 
+  {
+    name: 'Emma Brown',
     role: 'Partnerships Lead',
     image: 'https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-rose-400 via-pink-400 to-purple-400'
   },
-  { 
-    name: 'Noah Garcia', 
+  {
+    name: 'Noah Garcia',
     role: 'Developer Advocate',
     image: 'https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?w=400',
     linkedin: 'https://linkedin.com',
     gradient: 'from-blue-400 via-indigo-400 to-violet-400'
   },
-  { 
-    name: 'Olivia Martin', 
+  {
+    name: 'Olivia Martin',
     role: 'Community Outreach',
     image: 'https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?w=400',
     linkedin: 'https://linkedin.com',
@@ -100,15 +100,15 @@ export default function TeamsPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50">
       <Navbar />
       <Snowfall />
-      
+
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-12 overflow-hidden">
         {/* Winter background effects */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-slate-100"></div>
-          
+
           {/* Animated orbs */}
-          <motion.div 
+          <motion.div
             className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-cyan-300/30 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
@@ -120,8 +120,8 @@ export default function TeamsPage() {
               ease: "easeInOut"
             }}
           />
-          
-          <motion.div 
+
+          <motion.div
             className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-200/30 to-sky-300/30 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
@@ -137,7 +137,7 @@ export default function TeamsPage() {
         </div>
 
         <div className="max-w-7xl mx-auto text-center mb-16">
-          <motion.h1 
+          <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-blue-700 via-cyan-700 to-slate-700 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -145,13 +145,13 @@ export default function TeamsPage() {
           >
             Meet Our Team
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            The amazing people behind Community MeetUP who make it all possible
+            The amazing people behind Community MeetUps who make it all possible
           </motion.p>
         </div>
       </section>
@@ -166,8 +166,8 @@ export default function TeamsPage() {
                 className="relative group"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.5, 
+                transition={{
+                  duration: 0.5,
                   delay: index * 0.1,
                   ease: [0.16, 1, 0.3, 1]
                 }}
@@ -188,7 +188,7 @@ export default function TeamsPage() {
                       alt={member.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    
+
                     {/* Simple overlay on hover */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
@@ -210,7 +210,7 @@ export default function TeamsPage() {
                     <h3 className="text-xl md:text-2xl mb-2">
                       {member.name}
                     </h3>
-                    
+
                     <p className={`text-sm md:text-base text-gray-600`}>
                       {member.role}
                     </p>

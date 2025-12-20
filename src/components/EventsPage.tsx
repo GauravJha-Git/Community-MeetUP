@@ -139,7 +139,7 @@ export default function EventsPage() {
   const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
   const currentEvents = activeTab === 'upcoming' ? upcomingEvents : pastEvents;
   const navigate = useNavigate();
-  
+
   // State for modal
   const [selectedEvent, setSelectedEvent] = useState<typeof upcomingEvents[0] | null>(null);
 
@@ -155,7 +155,7 @@ export default function EventsPage() {
     };
 
     window.addEventListener('popstate', handlePopState);
-    
+
     return () => {
       window.removeEventListener('popstate', handlePopState);
     };
@@ -165,20 +165,20 @@ export default function EventsPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-slate-50 to-cyan-50">
       <Snowfall />
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
         {/* Animated Gradient Background */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-cyan-100/20 to-teal-100/20 animate-gradient"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6">
             Events and Gallery
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Explore our upcoming events, relive past moments, and discover the vibrant community that makes Community MeetUP special.
+            Explore our upcoming events, relive past moments, and discover the vibrant community that makes Community MeetUps special.
           </p>
         </div>
       </section>
@@ -189,11 +189,10 @@ export default function EventsPage() {
           <div className="flex gap-3 sm:gap-4 flex-wrap justify-center sm:justify-start">
             <button
               onClick={() => setActiveTab('upcoming')}
-              className={`group relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all overflow-hidden text-sm sm:text-base ${
-                activeTab === 'upcoming'
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
-              }`}
+              className={`group relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all overflow-hidden text-sm sm:text-base ${activeTab === 'upcoming'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md scale-105'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
+                }`}
             >
               <span className="relative z-10 whitespace-nowrap">Upcoming Events</span>
               {activeTab !== 'upcoming' && (
@@ -202,11 +201,10 @@ export default function EventsPage() {
             </button>
             <button
               onClick={() => setActiveTab('past')}
-              className={`group relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all overflow-hidden text-sm sm:text-base ${
-                activeTab === 'past'
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md scale-105'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
-              }`}
+              className={`group relative px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all overflow-hidden text-sm sm:text-base ${activeTab === 'past'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md scale-105'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
+                }`}
             >
               <span className="relative z-10 whitespace-nowrap">Past Events</span>
               {activeTab !== 'past' && (
@@ -254,7 +252,7 @@ export default function EventsPage() {
                       <span className="truncate">{event.address}</span>
                     </p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setSelectedEvent(event)}
                     className={`group/btn relative w-full px-6 py-3 rounded-full bg-gradient-to-r ${event.gradient} text-white overflow-hidden transition-all hover:scale-105 hover:shadow-lg mt-4 cursor-pointer`}
                   >
@@ -282,7 +280,7 @@ export default function EventsPage() {
             <div className="w-full h-full flex flex-col justify-center gap-6">
               {/* First row - scrolls left to right */}
               <div className="w-full overflow-hidden">
-                <Marquee className="[--duration:40s]" repeat={6}>
+                <Marquee className="[--duration:40s]" repeat={6} reverse>
                   {slider1.map((payload, index) => (
                     <div key={index} className="px-2">
                       <ImageWithFallback
@@ -295,7 +293,7 @@ export default function EventsPage() {
                 </Marquee>
               </div>
 
-              {/* Second row - scrolls right to left (reverse) */}
+              {/* Second row - scrolls right to left (normal) */}
               <div className="w-full overflow-hidden">
                 <Marquee className="[--duration:40s]" repeat={6}>
                   {slider2.map((payload, index) => (
@@ -312,7 +310,7 @@ export default function EventsPage() {
 
               {/* Third row - scrolls left to right */}
               <div className="w-full overflow-hidden">
-                <Marquee className="[--duration:40s]" repeat={6}>
+                <Marquee className="[--duration:40s]" repeat={6} reverse>
                   {slider3.map((payload, index) => (
                     <div key={index} className="px-2">
                       <ImageWithFallback
@@ -330,12 +328,12 @@ export default function EventsPage() {
       </section>
 
       <Footer />
-      
+
       {/* Event Detail Modal */}
       {selectedEvent && (
-        <EventDetailModal 
-          event={selectedEvent} 
-          onClose={() => setSelectedEvent(null)} 
+        <EventDetailModal
+          event={selectedEvent}
+          onClose={() => setSelectedEvent(null)}
         />
       )}
     </div>
