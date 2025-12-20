@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Linkedin } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -95,6 +95,11 @@ const teamMembers = [
 
 export default function TeamsPage() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50/50 via-blue-50/30 to-cyan-50/50">
